@@ -247,6 +247,50 @@ html {
         0%, 100% { background-position: 0% 50%; }
         50% { background-position: 100% 50%; }
     }
+
+    /* Mobile-specific optimizations */
+    @media (max-width: 768px) {
+        .apple-card:hover {
+            transform: translateY(-4px); /* Reduced hover effect on mobile */
+        }
+        
+        .float-animation {
+            animation-duration: 8s; /* Slower animation on mobile for better performance */
+        }
+        
+        /* Reduce blur effects on mobile for better performance */
+        .glass-morphism {
+            backdrop-filter: blur(10px);
+            -webkit-backdrop-filter: blur(10px);
+        }
+        
+        .nav-blur {
+            backdrop-filter: blur(15px);
+            -webkit-backdrop-filter: blur(15px);
+        }
+        
+        /* Optimize text rendering on mobile */
+        .apple-text-gradient {
+            -webkit-text-stroke: 0.5px transparent;
+        }
+    }
+
+    /* Touch-friendly interactions */
+    @media (hover: none) and (pointer: coarse) {
+        .hover-lift:hover {
+            transform: none; /* Disable hover effects on touch devices */
+        }
+        
+        .apple-card:hover {
+            transform: none;
+        }
+        
+        /* Make touch targets larger */
+        button, a {
+            min-height: 44px;
+            min-width: 44px;
+        }
+    }
 }
 
 @layer base {
@@ -311,6 +355,14 @@ html {
     }
     body {
         @apply bg-background text-foreground;
-        cursor: none; /* Hide default cursor for custom cursor effect */
+        /* Conditional cursor hiding - only hide on desktop */
+        cursor: default;
+    }
+    
+    /* Hide cursor only on desktop with mouse */
+    @media (hover: hover) and (pointer: fine) {
+        body {
+            cursor: none;
+        }
     }
 }
