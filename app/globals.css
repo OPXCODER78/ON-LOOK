@@ -38,7 +38,7 @@ html {
         text-wrap: balance;
     }
 
-    /* Apple-inspired gradient background */
+    /* Enhanced Apple-inspired gradient background */
     .apple-gradient {
         background:
             radial-gradient(
@@ -51,6 +51,11 @@ html {
                 rgba(255, 119, 198, 0.08) 0%,
                 transparent 50%
             ),
+            radial-gradient(
+                ellipse 40% 60% at 20% 80%,
+                rgba(0, 255, 255, 0.05) 0%,
+                transparent 40%
+            ),
             linear-gradient(180deg, #000000 0%, #0a0a0a 50%, #000000 100%);
     }
 
@@ -61,29 +66,36 @@ html {
         overflow-y: auto;
     }
 
-    /* Apple-style glass morphism */
+    /* Enhanced Apple-style glass morphism */
     .glass-morphism {
         background: rgba(255, 255, 255, 0.05);
         backdrop-filter: blur(20px);
         -webkit-backdrop-filter: blur(20px);
         border: 1px solid rgba(255, 255, 255, 0.1);
+        box-shadow: 
+            0 8px 32px rgba(0, 0, 0, 0.1),
+            inset 0 1px 0 rgba(255, 255, 255, 0.1);
     }
 
-    /* Apple-style button */
+    /* Enhanced Apple-style button */
     .apple-button {
         background: linear-gradient(135deg, #007aff 0%, #0056cc 100%);
-        border-radius: 12px;
+        border-radius: 16px;
         transition: all 0.3s cubic-bezier(0.25, 0.46, 0.45, 0.94);
         box-shadow:
             0 4px 16px rgba(0, 122, 255, 0.3),
-            0 1px 3px rgba(0, 0, 0, 0.2);
+            0 1px 3px rgba(0, 0, 0, 0.2),
+            inset 0 1px 0 rgba(255, 255, 255, 0.1);
+        position: relative;
+        overflow: hidden;
     }
 
     .apple-button:hover {
         transform: translateY(-2px);
         box-shadow:
             0 8px 32px rgba(0, 122, 255, 0.4),
-            0 4px 16px rgba(0, 0, 0, 0.2);
+            0 4px 16px rgba(0, 0, 0, 0.2),
+            inset 0 1px 0 rgba(255, 255, 255, 0.2);
         background: linear-gradient(135deg, #0056cc 0%, #003d99 100%);
     }
 
@@ -92,14 +104,17 @@ html {
         transition: all 0.1s cubic-bezier(0.25, 0.46, 0.45, 0.94);
     }
 
-    /* Apple-style card */
+    /* Enhanced Apple-style card */
     .apple-card {
         background: rgba(28, 28, 30, 0.8);
         backdrop-filter: blur(40px);
         -webkit-backdrop-filter: blur(40px);
         border: 1px solid rgba(255, 255, 255, 0.08);
-        border-radius: 20px;
+        border-radius: 24px;
         transition: all 0.4s cubic-bezier(0.25, 0.46, 0.45, 0.94);
+        box-shadow: 
+            0 8px 32px rgba(0, 0, 0, 0.2),
+            inset 0 1px 0 rgba(255, 255, 255, 0.05);
     }
 
     .apple-card:hover {
@@ -107,15 +122,17 @@ html {
         border-color: rgba(255, 255, 255, 0.15);
         box-shadow:
             0 20px 60px rgba(0, 0, 0, 0.4),
-            0 8px 32px rgba(0, 0, 0, 0.2);
+            0 8px 32px rgba(0, 0, 0, 0.2),
+            inset 0 1px 0 rgba(255, 255, 255, 0.1);
     }
 
-    /* Apple-style navigation blur */
+    /* Enhanced Apple-style navigation blur */
     .nav-blur {
         background: rgba(0, 0, 0, 0.8);
         backdrop-filter: blur(20px);
         -webkit-backdrop-filter: blur(20px);
         border-bottom: 1px solid rgba(255, 255, 255, 0.05);
+        box-shadow: 0 1px 20px rgba(0, 0, 0, 0.1);
     }
 
     /* Parallax effect */
@@ -124,7 +141,7 @@ html {
         will-change: transform;
     }
 
-    /* Apple-style text gradient */
+    /* Enhanced Apple-style text gradient */
     .apple-text-gradient {
         background: linear-gradient(135deg, #ffffff 0%, #a0a0a0 100%);
         -webkit-background-clip: text;
@@ -132,7 +149,7 @@ html {
         background-clip: text;
     }
 
-    /* Smooth animations */
+    /* Enhanced smooth animations */
     .smooth-animation {
         transition: all 0.4s cubic-bezier(0.25, 0.46, 0.45, 0.94);
     }
@@ -141,25 +158,27 @@ html {
     .apple-focus {
         outline: none;
         box-shadow: 0 0 0 3px rgba(0, 122, 255, 0.3);
-        border-radius: 8px;
+        border-radius: 12px;
     }
 
-    /* Floating animation */
+    /* Enhanced floating animation */
     .float-animation {
         animation: float 6s ease-in-out infinite;
     }
 
     @keyframes float {
-        0%,
-        100% {
-            transform: translateY(0px);
+        0%, 100% {
+            transform: translateY(0px) rotate(0deg);
         }
-        50% {
-            transform: translateY(-20px);
+        33% {
+            transform: translateY(-20px) rotate(2deg);
+        }
+        66% {
+            transform: translateY(-10px) rotate(-1deg);
         }
     }
 
-    /* Fade in animation */
+    /* Enhanced fade in animation */
     .fade-in {
         animation: fadeIn 1s ease-out forwards;
         opacity: 0;
@@ -168,29 +187,65 @@ html {
     @keyframes fadeIn {
         from {
             opacity: 0;
-            transform: translateY(30px);
+            transform: translateY(30px) scale(0.95);
         }
         to {
             opacity: 1;
-            transform: translateY(0);
+            transform: translateY(0) scale(1);
         }
     }
 
-    /* Stagger animation delays */
-    .delay-100 {
-        animation-delay: 0.1s;
+    /* Enhanced stagger animation delays */
+    .delay-100 { animation-delay: 0.1s; }
+    .delay-200 { animation-delay: 0.2s; }
+    .delay-300 { animation-delay: 0.3s; }
+    .delay-400 { animation-delay: 0.4s; }
+    .delay-500 { animation-delay: 0.5s; }
+    .delay-600 { animation-delay: 0.6s; }
+
+    /* New interactive animations */
+    .pulse-glow {
+        animation: pulseGlow 2s ease-in-out infinite;
     }
-    .delay-200 {
-        animation-delay: 0.2s;
+
+    @keyframes pulseGlow {
+        0%, 100% {
+            box-shadow: 0 0 20px rgba(0, 122, 255, 0.3);
+        }
+        50% {
+            box-shadow: 0 0 40px rgba(0, 122, 255, 0.6);
+        }
     }
-    .delay-300 {
-        animation-delay: 0.3s;
+
+    /* Curved border utilities */
+    .curved-border-sm { border-radius: 12px; }
+    .curved-border-md { border-radius: 16px; }
+    .curved-border-lg { border-radius: 20px; }
+    .curved-border-xl { border-radius: 24px; }
+    .curved-border-2xl { border-radius: 32px; }
+
+    /* Interactive hover effects */
+    .hover-lift {
+        transition: all 0.3s cubic-bezier(0.25, 0.46, 0.45, 0.94);
     }
-    .delay-400 {
-        animation-delay: 0.4s;
+
+    .hover-lift:hover {
+        transform: translateY(-4px) scale(1.02);
     }
-    .delay-500 {
-        animation-delay: 0.5s;
+
+    /* Gradient text animations */
+    .gradient-text-animated {
+        background: linear-gradient(45deg, #007aff, #ff006e, #8338ec, #3a86ff);
+        background-size: 400% 400%;
+        -webkit-background-clip: text;
+        -webkit-text-fill-color: transparent;
+        background-clip: text;
+        animation: gradientShift 3s ease infinite;
+    }
+
+    @keyframes gradientShift {
+        0%, 100% { background-position: 0% 50%; }
+        50% { background-position: 100% 50%; }
     }
 }
 
@@ -256,5 +311,6 @@ html {
     }
     body {
         @apply bg-background text-foreground;
+        cursor: none; /* Hide default cursor for custom cursor effect */
     }
 }
